@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+flake8 = "*"
+pytest-cov = "*"
+autopep8 = "*"
+codacy-coverage = "*"
+pytest-mock = "*"
+setuptools = "*"
+wheel = "*"
+setuptools-scm = "*"
+
+[packages]
+standalone-smach = "*"
+
+[requires]
+python_version = "3.8.2"
