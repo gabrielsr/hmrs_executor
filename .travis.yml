@@ -23,13 +23,13 @@ after_success:
 - codecov
 - pip install codacy-coverage
 - python-codacy-coverage -r coverage.xml
-- py.test --cov-report=xml --cov=gmrs tests/
+- py.test --cov-report=xml --cov=executor tests/
 - bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: pypi
   username: __token__
   password:
-    secure: krhron5BDWRr4fxA9bj2dPteE+FCtiRcVKSj66ZN+PJFfjSJxfwuKwVHJbjzvoUd1EZ3uUAFIMIWzgObUh9R0kgKFruM7QTyer2vLiUiIFGaiLv4UO3/M19xLr0qKWSl5jEl7WXJUq7g37vue62juEBqFyr3E0zBD39O1XEltDmYE+LGWR2WThxYbdhnZDwz/MM8IOsU1V4wSKfkBRAyh4zUP/KdyvudjmaEIly7XaZ47EBgmdZp3IVkQrzNbpdx+3Gs0WVcQzG3PPueNpW6PptBWO4+4HwKwfIXvgO1fWbZpjI+l2q8bHtWsLH85SyC7cG258n4pzJTZ7k0NELNer7qbQzLeo0E/nHGuyA8596/8LaiVPNTuxDyF0FJoggYtE5ayO0b52/vyOc6jTW/3sa3Z5ac6Lv20XAE+TthaQpf1MiJ2tobbgyf7yaUHqKHGLmaQksYWlFtdhodj4kbc+Ox6sE1H99eO9nkc1cThJBwyQewntNFj5607YBrV66jfOf+h+OGoLvvE3GuN4n/zZA/vz0oEpvjAqLC26Fr6HyIWJbtJ1JfC0n25m3/OoMx11Wo9YnDzCaBV5TM2KOJvAUV1UH2FfXoh2lqToDAYAivJ/WLOWipVDjYpIkSKtujuqZ07rZ0ZApCBaONDWIObMOyeFYrFeqWTQUkykVINGE=
+    secure: EbtKRBMx4qbc1TvOq7OmdBFFeHoqd4mtKDMVapnLxnpSik5wd/BLKQEUtagVQQuJ8LGTnhu29fakXWNkw/aM+UsejVY0E3uiGYOSeZaV9ybk3ClWMzhNaJAd3XqOJixXfdhCDiZFIJtF2TcwUKuWJ43mznwE0gh4MCUiPmsJIKrHCfYrSFF2RXQ2ZdYJZA01PtMZ8JXXoETpHpXYSOH4Ho1+LlutO/Qmjy45FfRBcyfY/0dqk9ft8qra7jJ4O20EQQrl1UavjIjWG1Pl7TBdLo4auepKKgoBMU9sDhXEgOBzXzyqnhFVsVm4Ra2WcxpLUR1NKyRSTQ9vAgvAqzcZPcCEIIMQG1i+jynPRes0y7ZwO7i5Z2A4UDqKCVKhVr1v9Rb0zRGKctAHZu6Pwe8QOycVsZb9MoZF+sYBTU+X8tcusH6Th17Yvx0OttfJTHv1gOi2jPjL5RZlLNiMJjnULz7jPhbeRA/PymjMN3K41/MwJZPC20EXI4pQh5OrdF2b0KbJfhHUdC2lE6ssY4VnAQCg7+dP3dVUY4ZRvqvE+Bbr7j6WqTSiNj+N/td4PBDoyqnxwbWzXp4ieP764acc3KIa/C5ZnwTSMaCMvoz1Bc/Ugxkl9FmDxhIk5/X95rRjeJhkA70tNqMChSfj0pgukRgzHWkReTVmpEWW8rp9d/I=
   on:
     all_branches: true
     tags: true
