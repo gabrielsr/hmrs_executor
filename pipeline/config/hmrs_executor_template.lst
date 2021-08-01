@@ -1,0 +1,6 @@
+#PYTHON
+#ID	    |PARENT_IDS	|MAX_ATTEMPTS	|RETRY_WAIT_TIME|PROCESS_NAME			|MODULE_NAME	|WORKER_NAME	|ARGUMENTS	|LOGFILE
+1	    |-1			|1				|0				|Start Job Notification	|workers		|Start			|			|$ENV{APP_LOG_DIR}/start.log
+2	    |1			|1				|0				|Load Trials			|workers		|LoadTrials 	|			|$ENV{APP_LOG_DIR}/load_trials.log
+$trials_jobs
+1000    |$proc_ids		|1				|0				|End Job Notification	|workers		|End			|			|$ENV{APP_LOG_DIR}/end.log
