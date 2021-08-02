@@ -1,27 +1,21 @@
 # <app_root_dir>/python/workers.py
+import sys
+sys.path.append('..')
+
+import os
+import json
+
 from collections import namedtuple
 
 from datetime import datetime
 from pyrunner import Worker
 
-import os
-import json
+from commons.collections import arr_to_map
 
 def emit_slack_message(message):
   # Assume implementation
   # ...
   print(message)
-
-def load_to_mysql(df):
-  # Assume implementation
-  # ...
-  print(df)
-
-def write_as_parquet(df, path):
-  # Assume implementation
-  # ...
-  print(df)
-  print(path)
 
 # Broadcast job start notification
 class Start(Worker):
@@ -32,8 +26,6 @@ class Start(Worker):
     abs_dir_path = os.path.dirname(os.path.realpath(__file__))
     trials_file = abs_dir_path + '/../config/trials.json'
     self.context['trials_file'] = trials_file
-      
-
     run_date_str = datetime.now().strftime('%Y-%m-%d')
     emit_slack_message('Starting daily data download for {}'.format(run_date_str))
 
@@ -46,7 +38,9 @@ class LoadTrials(Worker):
       self.logger.info('loading trials')
       trials_file = self.context['trials_file']
       with open(trials_file) as f:
-          self.context['trials'] = json.load(f)
+          trials = json.load(f)
+          self.context['trials'] = trials
+          self.context['trials_map'] = arr_to_map(trials, by='code')
 
 class ExecTrial(Worker):
     args = namedtuple('trial_args', 'id code')
