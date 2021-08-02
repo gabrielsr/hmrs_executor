@@ -10,8 +10,7 @@
             "request": "launch",
             "program": "./pipeline/hmrs_executor.py",
             "console": "integratedTerminal",
-            "justMyCode": false,
-            "debugStdLib": true
+            "justMyCode": false
 
         },
         {
